@@ -1,0 +1,92 @@
+[COPYFILES_32]
+SoftwareDriver\DLL\CPL\x86\>>>%INSTALLDIR%\CPL\
+
+
+[COPYFILES_64]
+SoftwareDriver\DLL\CPL\x64\>>>%INSTALLDIR%\CPL\
+
+
+[POSTRUNAPP_INSTALL_32]
+%SETUPDIR%\Program\CmElv.exe "%INSTALLDIR%\CPL\XearAudioCenter.exe /h /i"
+
+
+[POSTRUNAPP_INSTALL_64]
+%SETUPDIR%\Program\CmElv64.exe "%INSTALLDIR%\CPL\XearAudioCenter_x64.exe /h /i"
+
+
+[POSTRUNAPP_BEFOREREMOVEFILE_32]
+
+[POSTRUNAPP_BEFOREREMOVEFILE_64]
+
+
+[BEFORERUNAPP_REMOVE_32]
+%INSTALLDIR%\CPL\XearAudioCenter.exe /u /q -WAIT
+
+[BEFORERUNAPP_REMOVE_64]
+%INSTALLDIR%\CPL\XearAudioCenter_x64.exe /u /q -WAIT
+
+
+[BEFORERUNAPP_TERMINATE_32]
+
+[BEFORERUNAPP_TERMINATE_64]
+
+
+[POSTDELFILE_REMOVE_32]
+%WINDIR%\System\Dlap.pfx
+%WINDIR%\System32\CmiInstallResAll.dll
+%WINDIR%\system32\CMEffectAPO_108B.dll
+%WINDIR%\system32\CMCplExt_108B.dll
+%WINDIR%\system32\Drivers\108B.sys
+%WINDIR%\system\CM108B_cpl.ini
+
+[POSTDELFILE_REMOVE_64]
+%WINDIR%\System\Dlap.pfx
+%WINDIR%\System32\CmiInstallResAll64.dll
+%WINDIR%\system32\CMEffectAPO_108B.dll
+%WINDIR%\system32\CMCplExt_108B.dll
+%WINDIR%\system32\Drivers\108B.sys
+%WINDIR%\system\CM108B_cpl.ini
+
+[ADDREG_32]
+HKCR,"CLSID\{125C480D-543D-49C8-8840-4D28400ED72A}",,,"Xear Audio Center"
+HKCR,"CLSID\{125C480D-543D-49C8-8840-4D28400ED72A}","InfoTip",REG_EXPAND_SZ,"Configure your sound card"
+HKCR,"CLSID\{125C480D-543D-49C8-8840-4D28400ED72A}","System.ApplicationName",,"CMedia.XearAudioCenter"
+HKCR,"CLSID\{125C480D-543D-49C8-8840-4D28400ED72A}","System.ControlPanel.Category",,"4"
+HKCR,"CLSID\{125C480D-543D-49C8-8840-4D28400ED72A}","System.Software.TasksFileUrl",,"internal" 
+HKCR,"CLSID\{125C480D-543D-49C8-8840-4D28400ED72A}\DefaultIcon",,,"%WINDIR%\CM108B.ico" -RMREGKEY
+HKCR,"CLSID\{125C480D-543D-49C8-8840-4D28400ED72A}\Shell\Open\Command",,,"%INSTALLDIR%\CPL\XearAudioCenter.exe" -RMREGKEY
+
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\ControlPanel\NameSpace\{125C480D-543D-49C8-8840-4D28400ED72A}",,,"Xear Audio Center" -RMREGKEY
+
+HKLM,"Software\Microsoft\Windows\CurrentVersion\Run",Cm108BSound,,"~"%INSTALLDIR%\CPL\XearAudioCenter.exe~" /h /d"
+HKLM,"Software\cmitmp\",CMUninstallString,,"%WINDIR%\System32\cmeauCM108B.exe /rm /pcm108b"
+
+[ADDREG_64]
+HKCR,"CLSID\{125C480D-543D-49C8-8840-4D28400ED72A}",,,"Xear Audio Center"
+HKCR,"CLSID\{125C480D-543D-49C8-8840-4D28400ED72A}","InfoTip",REG_EXPAND_SZ,"Configure your sound card"
+HKCR,"CLSID\{125C480D-543D-49C8-8840-4D28400ED72A}","System.ApplicationName",,"CMedia.XearAudioCenter"
+HKCR,"CLSID\{125C480D-543D-49C8-8840-4D28400ED72A}","System.ControlPanel.Category",,"4"
+HKCR,"CLSID\{125C480D-543D-49C8-8840-4D28400ED72A}","System.Software.TasksFileUrl",,"internal"
+HKCR,"CLSID\{125C480D-543D-49C8-8840-4D28400ED72A}\DefaultIcon",,,"%WINDIR%\CM108B.ico" -RMREGKEY
+HKCR,"CLSID\{125C480D-543D-49C8-8840-4D28400ED72A}\Shell\Open\Command",,,"%INSTALLDIR%\CPL\XearAudioCenter_x64.exe" -RMREGKEY
+
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\ControlPanel\NameSpace\{125C480D-543D-49C8-8840-4D28400ED72A}",,,"Xear Audio Center" -RMREGKEY
+
+HKLM,"Software\Microsoft\Windows\CurrentVersion\Run",Cm108BSound,,"~"%INSTALLDIR%\CPL\XearAudioCenter_x64.exe~" /h /d"
+HKLM,"Software\Wow6432Node\cmitmp\",CMUninstallString,,"%WINDIR%\System32\cmeauCM108B.exe /rm /pcm108b"
+
+
+[ADDSTARTPROGRAM_32]
+Xear Audio Center,%INSTALLDIR%\CPL\XearAudioCenter.exe,,,"Xear Audio Center",%WINDIR%\CM108B.ico
+
+
+[ADDSTARTPROGRAM_64]
+Xear Audio Center,%INSTALLDIR%\CPL\XearAudioCenter_x64.exe,,,"Xear Audio Center",%WINDIR%\CM108B.ico
+
+
+[ADDSHORTCUT_32]
+"%INSTALLDIR%\CPL\XearAudioCenter.exe",,%DESKTOPDIR%,"Xear Audio Center",%WINDIR%\CM108B.ico
+
+
+[ADDSHORTCUT_64]
+"%INSTALLDIR%\CPL\XearAudioCenter_x64.exe",,%DESKTOPDIR%,"Xear Audio Center",%WINDIR%\CM108B.ico
